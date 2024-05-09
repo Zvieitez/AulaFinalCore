@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<Funcionario>
+
+<h2>Lista de Funcionarios</h2>
+
+<p>
+    <a asp-action="Create">Adicionar Funcionário</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>FuncionárioId</th>
+            <th>Nome do Funcionário</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var funcionario in Model)
+        {
+            <tr>
+                <td>@funcionario.FuncionarioId</td>
+                <td>@funcionario.NomeFuncionario</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@funcionario.FuncionarioId">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@funcionario.FuncionarioId">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
